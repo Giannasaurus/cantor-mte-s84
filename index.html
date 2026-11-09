@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5ef">
+    <meta name="description" content="A thoughtful collection of free, trusted learning resources for curious minds, educators, and lifelong learners.">
+    <title>The Resource Hub for Education — Learn something wonderful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      :root {
+        --ink: #1c302c;
+        --muted: #64736c;
+        --green: #245c4b;
+        --green-dark: #194839;
+        --mint: #e6eee5;
+        --cream: #f6f5ef;
+        --paper: #fffefa;
+        --line: #e8e9df;
+        --coral: #e88165;
+        --yellow: #f0c865;
+        --lavender: #e9e7f2;
+        --shadow: 0 16px 46px rgba(34, 55, 45, .08);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, .navbar-brand { font-family: "Manrope", sans-serif; letter-spacing: -.045em; }
+      a { color: inherit; }
+      .navbar {
+        min-height: 76px;
+        background: rgba(246, 245, 239, .94);
+        border-bottom: 1px solid rgba(28, 48, 44, .07);
+        backdrop-filter: blur(14px);
+      }
+      .navbar-brand { color: var(--ink); font-size: 1.03rem; font-weight: 800; letter-spacing: -.05em; }
+      .brand-mark {
+        display: inline-grid;
+        width: 35px;
+        height: 35px;
+        margin-right: 9px;
+        place-items: center;
+        border-radius: 12px;
+        background: var(--green);
+        color: white;
+        vertical-align: middle;
+      }
+      .navbar-nav { gap: .25rem; }
+      .navbar .nav-link { padding: .6rem .8rem !important; color: #53625c; font-size: .88rem; font-weight: 600; }
+      .navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--green); }
+      .nav-cta { padding: .65rem 1rem !important; border-radius: 999px; background: var(--green); color: white !important; }
+      .nav-cta:hover, .nav-cta:focus { background: var(--green-dark); color: white !important; }
+      .section-wrap { padding: 92px 0; }
+      .hero { overflow: hidden; padding: 74px 0 64px; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        color: var(--green);
+        font-size: .74rem;
+        font-weight: 700;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+      }
+      .eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+      .hero h1 { max-width: 700px; margin: 0 0 22px; font-size: clamp(3rem, 6.5vw, 5.65rem); font-weight: 700; line-height: 1.02; }
+      .hero h1 em { color: var(--green); font-style: normal; }
+      .hero-copy { max-width: 515px; margin-bottom: 28px; color: var(--muted); font-size: 1.07rem; line-height: 1.75; }
+      .btn-primary-custom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 13px 19px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--green);
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        transition: .2s ease;
+      }
+      .btn-primary-custom:hover, .btn-primary-custom:focus { background: var(--green-dark); color: white; transform: translateY(-2px); }
+      .text-link { color: var(--green); font-size: .91rem; font-weight: 700; text-decoration: none; }
+      .text-link:hover { color: var(--green-dark); text-decoration: underline; text-underline-offset: 4px; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+      .hero-visual {
+        position: relative;
+        display: grid;
+        min-height: 390px;
+        place-items: center;
+      }
+      .hero-visual::before {
+        position: absolute;
+        width: min(390px, 85%);
+        aspect-ratio: 1;
+        border-radius: 47% 53% 62% 38% / 43% 43% 57% 57%;
+        background: #e8eadc;
+        content: "";
+        transform: rotate(-9deg);
+      }
+      .orbit {
+        position: relative;
+        display: grid;
+        width: 285px;
+        height: 285px;
+        place-items: center;
+        border: 1px solid rgba(36, 92, 75, .2);
+        border-radius: 50%;
+      }
+      .orbit::before, .orbit::after { position: absolute; border: 1px solid rgba(36, 92, 75, .13); border-radius: 50%; content: ""; }
+      .orbit::before { inset: 20px; }
+      .orbit::after { inset: -20px; }
+      .book-stack { position: relative; display: grid; width: 158px; height: 166px; place-items: center; }
+      .book {
+        position: absolute;
+        width: 125px;
+        height: 42px;
+        border: 1px solid rgba(27, 48, 44, .12);
+        border-radius: 6px 10px 10px 6px;
+        box-shadow: 3px 5px 0 rgba(28, 48, 44, .1);
+      }
+      .book::after { position: absolute; top: 0; bottom: 0; left: 12px; width: 1px; background: rgba(255,255,255,.55); content: ""; }
+      .book-one { bottom: 24px; background: #e88165; transform: rotate(-8deg); }
+      .book-two { bottom: 62px; background: #f0c865; transform: rotate(7deg); }
+      .book-three { bottom: 100px; background: #426d58; transform: rotate(-4deg); }
+      .sunburst { position: absolute; top: 27px; right: 27px; color: #da9c48; font-size: 2rem; }
+      .orbit-note {
+        position: absolute;
+        right: 0;
+        bottom: 40px;
+        padding: 13px 17px;
+        border: 1px solid rgba(28, 48, 44, .06);
+        border-radius: 14px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+        color: var(--green);
+        font-size: .85rem;
+        font-weight: 700;
+        transform: rotate(3deg);
+      }
+      .orbit-note span { display: block; margin-top: 3px; color: var(--muted); font-size: .72rem; font-weight: 500; }
+      .intro-strip { padding: 0 0 42px; }
+      .intro-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 23px 30px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 254, 250, .68);
+      }
+      .intro-card p { margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.65; }
+      .intro-card strong { color: var(--ink); }
+      .intro-stat { flex: 0 0 auto; color: var(--green); font-family: "Manrope", sans-serif; font-size: 1.55rem; font-weight: 800; letter-spacing: -.06em; }
+      .intro-stat small { display: block; color: var(--muted); font-family: "DM Sans",sans-serif; font-size: .69rem; font-weight: 600; letter-spacing: .03em; }
+      .section-heading { max-width: 650px; margin-bottom: 38px; }
+      .section-heading h2 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.1; }
+      .section-heading p { max-width: 530px; margin: 0; color: var(--muted); line-height: 1.7; }
+      .featured-section { padding-top: 42px; }
+      .resource-card {
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 19px;
+        background: var(--paper);
+        transition: transform .22s ease, box-shadow .22s ease;
+      }
+      .resource-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+      .resource-art { position: relative; display: flex; height: 175px; align-items: center; justify-content: center; overflow: hidden; }
+      .art-science { background: #e7eff0; }
+      .art-reading { background: #f3eadc; }
+      .art-nature { background: #e7eee1; }
+      .art-symbol { display: grid; width: 82px; height: 82px; place-items: center; border: 1px solid rgba(28,48,44,.16); border-radius: 25px; background: rgba(255,255,255,.53); color: var(--green); font-size: 2.2rem; transform: rotate(-7deg); }
+      .art-shape { position: absolute; width: 130px; height: 130px; border: 1px solid rgba(36,92,75,.22); border-radius: 44% 56% 55% 45%; transform: rotate(24deg); }
+      .art-shape::before { position: absolute; inset: 11px; border: 1px solid rgba(36,92,75,.18); border-radius: 55% 45% 45% 55%; content: ""; }
+      .art-stamp { position: absolute; top: 16px; right: 17px; color: rgba(28,48,44,.5); font-size: .69rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      .card-body-custom { padding: 22px; }
+      .tag { display: inline-block; margin-bottom: 12px; padding: 5px 9px; border-radius: 999px; background: var(--mint); color: var(--green); font-size: .69rem; font-weight: 700; }
+      .resource-card h3 { margin: 0 0 8px; font-size: 1.16rem; font-weight: 700; }
+      .resource-card p { margin: 0 0 18px; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+      .resource-link { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font-size: .84rem; font-weight: 700; text-decoration: none; }
+      .resource-link:hover { color: var(--green-dark); text-decoration: underline; text-underline-offset: 3px; }
+      .section-green { background: #edf1e8; }
+      .category-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+      .category-link {
+        display: flex;
+        min-height: 118px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 18px;
+        border: 1px solid rgba(28, 48, 44, .09);
+        border-radius: 16px;
+        background: rgba(255, 254, 250, .76);
+        color: var(--ink);
+        text-decoration: none;
+        transition: .2s ease;
+      }
+      .category-link:hover, .category-link:focus { border-color: rgba(36, 92, 75, .4); background: white; color: var(--green); transform: translateY(-3px); }
+      .category-icon { font-size: 1.35rem; }
+      .category-link strong { font-family: "Manrope", sans-serif; font-size: .91rem; font-weight: 700; }
+      .category-count { color: var(--muted); font-size: .73rem; }
+      .resource-library { padding-top: 0; }
+      .library-top { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 27px; }
+      .library-top .section-heading { margin: 0; }
+      .filter-group { display: flex; flex-wrap: wrap; gap: 7px; }
+      .filter-btn { padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font: inherit; font-size: .78rem; font-weight: 700; transition: .2s ease; }
+      .filter-btn:hover, .filter-btn.active { border-color: var(--green); background: var(--green); color: white; }
+      .resource-item[hidden] { display: none !important; }
+      .library-empty { display: none; padding: 30px; border: 1px dashed #cbd4c8; border-radius: 16px; color: var(--muted); text-align: center; }
+      .library-empty.visible { display: block; }
+      .about-panel { overflow: hidden; border-radius: 24px; background: var(--green); color: white; }
+      .about-copy { padding: clamp(30px, 6vw, 66px); }
+      .about-copy .eyebrow { color: #c7dfc9; }
+      .about-copy h2 { max-width: 620px; margin-bottom: 19px; font-size: clamp(2.15rem, 4.2vw, 3.5rem); font-weight: 700; line-height: 1.08; }
+      .about-copy p { max-width: 620px; margin-bottom: 0; color: rgba(255,255,255,.76); font-size: 1rem; line-height: 1.8; }
+      .about-aside { display: flex; min-height: 100%; align-items: center; justify-content: center; padding: 35px; background: rgba(255,255,255,.055); }
+      .quote-mark { color: var(--yellow); font-family: Georgia,serif; font-size: 4rem; line-height: .7; }
+      .quote-text { max-width: 220px; margin: 13px 0 0; color: white; font-family: "Manrope",sans-serif; font-size: 1.22rem; font-weight: 600; line-height: 1.5; }
+      .contact-section { padding: 74px 0; }
+      .contact-card { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 28px 32px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+      .contact-card h2 { margin: 0 0 7px; font-size: 1.45rem; font-weight: 700; }
+      .contact-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+      .contact-email { color: var(--green); font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .contact-email:hover { color: var(--green-dark); text-decoration: underline; text-underline-offset: 4px; }
+      footer { padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+      footer a { color: var(--green); font-weight: 700; text-decoration: none; }
+      footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+      :focus-visible { outline: 3px solid #e88165; outline-offset: 3px; }
+      @media (max-width: 991.98px) {
+        .hero { padding-top: 55px; }
+        .hero-visual { min-height: 330px; }
+        .navbar-nav { gap: 0; padding: 10px 0 14px; }
+        .nav-cta { display: inline-block; width: fit-content; margin-top: 5px; }
+      }
+      @media (max-width: 767.98px) {
+        .section-wrap { padding: 68px 0; }
+        .hero { padding: 48px 0 36px; }
+        .hero-visual { min-height: 290px; }
+        .orbit { width: 225px; height: 225px; }
+        .book-stack { transform: scale(.85); }
+        .orbit-note { right: 7%; bottom: 20px; }
+        .intro-strip { padding-bottom: 24px; }
+        .intro-card { align-items: flex-start; padding: 20px; }
+        .intro-stat { font-size: 1.2rem; }
+        .category-row { grid-template-columns: repeat(2, 1fr); }
+        .library-top { align-items: flex-start; flex-direction: column; }
+        .about-aside { min-height: 180px; justify-content: flex-start; }
+        .contact-card { align-items: flex-start; flex-direction: column; padding: 24px; }
+      }
+      @media (max-width: 420px) {
+        .hero h1 { font-size: 2.8rem; }
+        .hero-actions { align-items: flex-start; flex-direction: column; gap: 14px; }
+        .category-link { min-height: 108px; padding: 15px; }
+        .category-link strong { font-size: .82rem; }
+        .intro-card { gap: 14px; }
+        .intro-stat { max-width: 82px; font-size: 1.02rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#home" aria-label="The Resource Hub for Education home">
+          <span class="brand-mark" aria-hidden="true">r.</span>The Resource Hub for Education
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#categories-section">Explore</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Our mission</a></li>
+            <li class="nav-item"><a class="nav-link nav-cta" href="#contact">Get in touch <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="home-title">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>A little curiosity goes a long way</span>
+              <h1 id="home-title">A good place to <em>start learning.</em></h1>
+              <div id="introduction">
+                <p class="hero-copy">Thoughtfully gathered tools, lessons, and ideas for learners of every age. Find your next rabbit hole, classroom helper, or spark of inspiration.</p>
+                <div class="hero-actions">
+                  <a class="btn-primary-custom" href="#categories-section">Explore the library <span aria-hidden="true">↓</span></a>
+                  <a class="text-link" href="#about">A bit about us <span aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-visual" aria-hidden="true">
+                <div class="orbit">
+                  <span class="sunburst">✳</span>
+                  <div class="book-stack">
+                    <span class="book book-one"></span>
+                    <span class="book book-two"></span>
+                    <span class="book book-three"></span>
+                  </div>
+                </div>
+                <div class="orbit-note">Curiosity lives here <span>Pick a subject, any subject.</span></div>
+              </div>
+            </div>
+          </div>
+          <div id="featured" class="featured-section">
+            <div class="intro-strip" id="featured-intro">
+              <div class="intro-card">
+                <p><strong>A small, useful corner of the internet.</strong> We bring wonderful learning resources together, so you can spend less time searching and more time discovering.</p>
+                <div class="intro-stat">Free to explore<small>Curated with care</small></div>
+              </div>
+            </div>
+            <div class="section-heading">
+              <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>A few good starting points</span>
+              <h2>Featured finds</h2>
+              <p>Three trusted places to get that learning momentum going.</p>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <article class="resource-card">
+                  <div class="resource-art art-science" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">✳</span><span class="art-stamp">Experiment</span></div>
+                  <div class="card-body-custom">
+                    <span class="tag">Science · All ages</span>
+                    <h3>NASA Climate Kids</h3>
+                    <p>Games, activities, and stories that make our changing planet easier to understand.</p>
+                    <a class="resource-link" href="https://climatekids.nasa.gov/" target="_blank" rel="noopener noreferrer">Visit NASA Climate Kids <span aria-hidden="true">↗</span></a>
+                  </div>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="resource-card">
+                  <div class="resource-art art-reading" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">Aa</span><span class="art-stamp">Read a little</span></div>
+                  <div class="card-body-custom">
+                    <span class="tag">Reading · K–12</span>
+                    <h3>Storyline Online</h3>
+                    <p>Beloved picture books brought to life by actors, with classroom activity guides.</p>
+                    <a class="resource-link" href="https://storylineonline.net/" target="_blank" rel="noopener noreferrer">Visit Storyline Online <span aria-hidden="true">↗</span></a>
+                  </div>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="resource-card">
+                  <div class="resource-art art-nature" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">⌘</span><span class="art-stamp">Look closer</span></div>
+                  <div class="card-body-custom">
+                    <span class="tag">Nature · All ages</span>
+                    <h3>iNaturalist</h3>
+                    <p>Turn a walk outside into a discovery: observe, identify, and learn about local life.</p>
+                    <a class="resource-link" href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">Visit iNaturalist <span aria-hidden="true">↗</span></a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-wrap section-green" id="categories-section" aria-labelledby="categories-title">
+        <div class="container">
+          <div class="section-heading" id="categories">
+            <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Follow what fascinates you</span>
+            <h2 id="categories-title">What are you curious about?</h2>
+            <p>Browse by subject and find a resource that meets you where you are.</p>
+          </div>
+          <div class="category-row">
+            <a class="category-link" href="#resources" data-category-link="science"><span class="category-icon" aria-hidden="true">✳</span><strong>Science &amp; discovery</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="math"><span class="category-icon" aria-hidden="true">∑</span><strong>Math &amp; logic</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="reading"><span class="category-icon" aria-hidden="true">Aa</span><strong>Reading &amp; writing</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="arts"><span class="category-icon" aria-hidden="true">✽</span><strong>Arts &amp; creativity</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="nature"><span class="category-icon" aria-hidden="true">❋</span><strong>Nature &amp; our world</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="history"><span class="category-icon" aria-hidden="true">⌂</span><strong>History &amp; culture</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="technology"><span class="category-icon" aria-hidden="true">⌘</span><strong>Technology &amp; making</strong><span class="category-count">Explore resources →</span></a>
+            <a class="category-link" href="#resources" data-category-link="wellbeing"><span class="category-icon" aria-hidden="true">♡</span><strong>Life &amp; wellbeing</strong><span class="category-count">Explore resources →</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-wrap resource-library" id="resources" aria-labelledby="resources-title">
+        <div class="container">
+          <div class="library-top">
+            <div class="section-heading">
+              <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Good things to know</span>
+              <h2 id="resources-title">A few more rabbit holes</h2>
+              <p>Free, friendly resources selected for curious people.</p>
+            </div>
+            <div class="filter-group" role="group" aria-label="Filter resources by subject">
+              <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All resources</button>
+              <button class="filter-btn" type="button" data-filter="science" aria-pressed="false">Science</button>
+              <button class="filter-btn" type="button" data-filter="math" aria-pressed="false">Math</button>
+              <button class="filter-btn" type="button" data-filter="reading" aria-pressed="false">Reading</button>
+              <button class="filter-btn" type="button" data-filter="history" aria-pressed="false">History</button>
+              <button class="filter-btn" type="button" data-filter="arts" aria-pressed="false">Arts</button>
+              <button class="filter-btn" type="button" data-filter="nature" aria-pressed="false">Nature</button>
+              <button class="filter-btn" type="button" data-filter="technology" aria-pressed="false">Tech</button>
+              <button class="filter-btn" type="button" data-filter="wellbeing" aria-pressed="false">Wellbeing</button>
+            </div>
+          </div>
+          <div class="row g-4" id="resourceGrid">
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="science">
+              <article class="resource-card">
+                <div class="resource-art art-science" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">✳</span><span class="art-stamp">Experiment</span></div>
+                <div class="card-body-custom"><span class="tag">Science · All ages</span><h3>NASA Climate Kids</h3><p>Games, activities, and stories that make our changing planet easier to understand.</p><a class="resource-link" href="https://climatekids.nasa.gov/" target="_blank" rel="noopener noreferrer">Visit NASA Climate Kids <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="math">
+              <article class="resource-card">
+                <div class="resource-art art-science" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">π</span><span class="art-stamp">Make it click</span></div>
+                <div class="card-body-custom"><span class="tag">Math · All ages</span><h3>Desmos</h3><p>Play with graphs, explore patterns, and see math take shape.</p><a class="resource-link" href="https://www.desmos.com/" target="_blank" rel="noopener noreferrer">Explore Desmos <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="reading">
+              <article class="resource-card">
+                <div class="resource-art art-reading" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">Aa</span><span class="art-stamp">Read a little</span></div>
+                <div class="card-body-custom"><span class="tag">Reading · K–12</span><h3>Storyline Online</h3><p>Beloved picture books brought to life by actors, with classroom activity guides.</p><a class="resource-link" href="https://storylineonline.net/" target="_blank" rel="noopener noreferrer">Visit Storyline Online <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="history">
+              <article class="resource-card">
+                <div class="resource-art art-reading" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">✦</span><span class="art-stamp">Then &amp; now</span></div>
+                <div class="card-body-custom"><span class="tag">History · All ages</span><h3>Smithsonian Learning Lab</h3><p>Make discoveries among millions of images, stories, and artifacts.</p><a class="resource-link" href="https://learninglab.si.edu/" target="_blank" rel="noopener noreferrer">Visit the Learning Lab <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="arts">
+              <article class="resource-card">
+                <div class="resource-art art-nature" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">✿</span><span class="art-stamp">Make something</span></div>
+                <div class="card-body-custom"><span class="tag">Arts · All ages</span><h3>Google Arts &amp; Culture</h3><p>Wander through art, landmarks, and culture from around the world.</p><a class="resource-link" href="https://artsandculture.google.com/" target="_blank" rel="noopener noreferrer">Explore Arts &amp; Culture <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="nature">
+              <article class="resource-card">
+                <div class="resource-art art-nature" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">❋</span><span class="art-stamp">Look closer</span></div>
+                <div class="card-body-custom"><span class="tag">Nature · All ages</span><h3>iNaturalist</h3><p>Turn a walk outside into a discovery: observe, identify, and learn about local life.</p><a class="resource-link" href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">Visit iNaturalist <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="technology">
+              <article class="resource-card">
+                <div class="resource-art art-science" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">&lt;/&gt;</span><span class="art-stamp">Build &amp; tinker</span></div>
+                <div class="card-body-custom"><span class="tag">Technology · Ages 8+</span><h3>Scratch</h3><p>Create stories, games, and animations while learning to code.</p><a class="resource-link" href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">Start creating with Scratch <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-3 resource-item" data-category="wellbeing">
+              <article class="resource-card">
+                <div class="resource-art art-nature" aria-hidden="true"><span class="art-shape"></span><span class="art-symbol">♡</span><span class="art-stamp">Pause &amp; reset</span></div>
+                <div class="card-body-custom"><span class="tag">Wellbeing · All ages</span><h3>Smiling Mind</h3><p>Explore practical mindfulness activities for home, school, and everyday life.</p><a class="resource-link" href="https://www.smilingmind.com.au/" target="_blank" rel="noopener noreferrer">Explore Smiling Mind <span aria-hidden="true">↗</span></a></div>
+              </article>
+            </div>
+          </div>
+          <p class="library-empty" id="emptyMessage" role="status">No resources in this collection just yet. Try another subject.</p>
+        </div>
+      </section>
+
+      <section class="section-wrap pt-0" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about-panel row g-0">
+            <div class="col-lg-8">
+              <div class="about-copy" id="mission">
+                <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Why we made this</span>
+                <h2 id="about-title">Learning belongs to everyone.</h2>
+                <p>We believe a great resource should be easy to find, welcoming to explore, and useful to real people. This little hub is here to connect learners, families, and educators with wonderful free tools—because a curious mind deserves a place to wander.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="about-aside" aria-label="Our belief">
+                <div><span class="quote-mark" aria-hidden="true">“</span><p class="quote-text">The world is full of things to learn. Let’s make the first step easy.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-card">
+            <div><h2 id="contact-title">Have a good one to share?</h2><p>We’d love to hear what helps you learn, teach, and stay curious.</p></div>
+            <a class="contact-email" href="mailto:hello@resourcehub.education?subject=Resource%20suggestion">hello@resourcehub.education <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span>© 2025 The Resource Hub for Education. Made for curious minds.</span>
+        <a href="#home">Back to the top ↑</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      (() => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const resourceItems = document.querySelectorAll(".resource-item");
+        const emptyMessage = document.getElementById("emptyMessage");
+
+        function filterResources(category) {
+          let visibleCount = 0;
+          resourceItems.forEach((item) => {
+            const matches = category === "all" || item.dataset.category === category;
+            item.hidden = !matches;
+            if (matches) visibleCount += 1;
+          });
+          emptyMessage.classList.toggle("visible", visibleCount === 0);
+          filterButtons.forEach((button) => {
+            const isActive = button.dataset.filter === category;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+          });
+        }
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => filterResources(button.dataset.filter));
+        });
+
+        document.querySelectorAll("[data-category-link]").forEach((link) => {
+          link.addEventListener("click", () => {
+            const matchingFilter = document.querySelector(`.filter-btn[data-filter="${link.dataset.categoryLink}"]`);
+            filterResources(matchingFilter ? matchingFilter.dataset.filter : "all");
+          });
+        });
+
+        document.querySelectorAll(".navbar .nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            const navigation = document.getElementById("mainNavigation");
+            if (navigation.classList.contains("show") && window.bootstrap) {
+              window.bootstrap.Collapse.getOrCreateInstance(navigation).hide();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
